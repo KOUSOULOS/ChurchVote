@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Poll documents: readable by anyone, but only admin/server may modify
+    match /artifacts/{appId}/public/data/polls/{pollId} {
+      allow read: if true;
+      allow create, update, delete: if false;
+    }
+
+    // Votes collections follow the naming convention: poll_{pollId}_votes
+    // Each vote document must be written as a document with ID == userId
+    match /artifacts/{appId}/public/data/{votesCollection}/{voteId} {
+      allow read: if true;
+
+      allow create: if isValidVoteCreate(votesCollection, voteId);
+
+      // Disallow client-side updates/deletes to prevent tampering
+      allow update, delete: if false;
+    }
+
+    function isValidVoteCreate(votesCollection, voteId) {
+      // Basic collection name validation
+      return votesCollection.matches('^poll_.*_votes$')
+        // Required fields and basic types
+        && request.resource.data.keys().hasAll(['userId', 'method', 'votedAt'])
+        && request.resource.data.userId is string
+        && request.resource.data.method is string
+        && request.resource.data.votedAt is timestamp
+        // The client must write the vote document with the ID equal to the user identity
+        && voteId == request.resource.data.userId
+        // Either authenticated user (anonymous or otherwise) and UID matches,
+        // or unauthenticated QR-based submission with a token-like userId.
+        && (
+          (request.auth != null && request.resource.data.userId == request.auth.uid)
+          || (
+            request.auth == null
+            && request.resource.data.method == 'qr'
+            // crude token shape check: length > 8
+            && request.resource.data.userId.size() > 8
+          )
+        );
+    }
+  }
+}
