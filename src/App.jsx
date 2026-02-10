@@ -553,6 +553,29 @@ const LeaderView = () => {
     const code = Math.floor(1000 + Math.random() * 9000).toString();
 
     try {
+      // Prefer server-side creation via Callable Cloud Function for security.
+      try {
+        const { getFunctions, httpsCallable } = await import('firebase/functions');
+        const functions = getFunctions(app);
+        const createPoll = httpsCallable(functions, 'createPoll');
+        const result = await createPoll({
+          pin: '1234', // leader PIN - replace with secure mechanism in production
+          questions: finalQuestions,
+          accessCode: code,
+          appId: appId
+        });
+        if (result && result.data && result.data.id) {
+          setQuestions([]);
+          setCurrentQuestion('');
+          setCurrentOptions(['Yes', 'No', 'Abstain']);
+          setViewState('list');
+          return;
+        }
+      } catch (fnErr) {
+        // If functions aren't deployed or callable fails, fall back to client-side write (may be blocked by rules)
+        console.warn('createPoll function failed, falling back to client write:', fnErr);
+      }
+
       const pollsRef = collection(db, 'artifacts', appId, 'public', 'data', 'polls');
       await addDoc(pollsRef, {
         questions: finalQuestions,
@@ -562,13 +585,48 @@ const LeaderView = () => {
         question: finalQuestions[0].question,
         options: finalQuestions[0].options
       });
-      
+
       setQuestions([]);
       setCurrentQuestion('');
       setCurrentOptions(['Yes', 'No', 'Abstain']);
       setViewState('list');
     } catch (err) {
       alert("Error creating vote: " + err.message);
+    }
+  };
+
+  const createTestPoll = async () => {
+    const sample = [{ question: 'Automated test poll?', options: ['Yes', 'No'] }];
+    const code = Math.floor(1000 + Math.random() * 9000).toString();
+    try {
+      const { getFunctions, httpsCallable } = await import('firebase/functions');
+      const functions = getFunctions(app);
+      const createPoll = httpsCallable(functions, 'createPoll');
+      const result = await createPoll({ pin: '1234', questions: sample, accessCode: code, appId });
+      const id = result?.data?.id;
+      const accessCode = result?.data?.accessCode || code;
+      alert('Created test poll: ' + id + ' (code: ' + accessCode + ')');
+      setViewState('list');
+      return;
+    } catch (fnErr) {
+      console.warn('createPoll callable failed; falling back to client write', fnErr);
+    }
+
+    // Fallback: client-side write (may be blocked by rules)
+    try {
+      const pollsRef = collection(db, 'artifacts', appId, 'public', 'data', 'polls');
+      const docRef = await addDoc(pollsRef, {
+        questions: sample,
+        accessCode: code,
+        isActive: true,
+        createdAt: serverTimestamp(),
+        question: sample[0].question,
+        options: sample[0].options
+      });
+      alert('Created test poll (client): ' + docRef.id + ' (code: ' + code + ')');
+      setViewState('list');
+    } catch (err) {
+      alert('Failed to create test poll: ' + err.message);
     }
   };
 
@@ -852,9 +910,14 @@ const LeaderView = () => {
                 <div className="max-w-md mx-auto p-4 pb-24">
                   <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-bold text-slate-800">Leader Dashboard</h2>
+                  <div className="flex items-center gap-3">
                   <button onClick={() => setViewState('create')} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700">
                     + New Ballot
                   </button>
+                  <button onClick={createTestPoll} className="bg-slate-800 text-white px-3 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-slate-900">
+                    Create Test Poll
+                  </button>
+                  </div>
                   </div>
                   {activePolls.length === 0 && (
                     <div className="text-center py-12 text-slate-400 bg-slate-100 rounded-xl border-2 border-dashed border-slate-200">
