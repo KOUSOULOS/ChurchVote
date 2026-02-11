@@ -1,0 +1,626 @@
+[debug] [2026-02-10T14:27:07.200Z] ----------------------------------------------------------------------
+[debug] [2026-02-10T14:27:07.203Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --project churchvote-ba9c1
+[debug] [2026-02-10T14:27:07.203Z] CLI Version:   15.5.1
+[debug] [2026-02-10T14:27:07.203Z] Platform:      win32
+[debug] [2026-02-10T14:27:07.203Z] Node Version:  v22.18.0
+[debug] [2026-02-10T14:27:07.204Z] Time:          Tue Feb 10 2026 07:27:07 GMT-0700 (Mountain Standard Time)
+[debug] [2026-02-10T14:27:07.204Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-10T14:27:09.123Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-10T14:27:09.123Z] > authorizing via signed-in user (hlwarkentin@gmail.com)
+[debug] [2026-02-10T14:27:09.123Z] [iam] checking project churchvote-ba9c1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-02-10T14:27:09.124Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.124Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.125Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions [none]
+[debug] [2026-02-10T14:27:09.125Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions  x-goog-user-project=churchvote-ba9c1
+[debug] [2026-02-10T14:27:09.125Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:27:09.422Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions 200
+[debug] [2026-02-10T14:27:09.422Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:27:09.422Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.422Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.423Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-02-10T14:27:09.423Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-02-10T14:27:09.704Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-02-10T14:27:09.704Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'churchvote-ba9c1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-02-10T14:27:09.708Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.708Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.708Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T14:27:09.804Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T14:27:09.804Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-02-10T14:27:09.806Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.807Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:09.807Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig [none]
+[debug] [2026-02-10T14:27:10.027Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig 200
+[debug] [2026-02-10T14:27:10.027Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig {"projectId":"churchvote-ba9c1","storageBucket":"churchvote-ba9c1.firebasestorage.app"}
+[debug] [2026-02-10T14:27:10.028Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.028Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.029Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs [none]
+[debug] [2026-02-10T14:27:10.279Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs 200
+[debug] [2026-02-10T14:27:10.279Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs {"configs":[{"name":"projects/churchvote-ba9c1/configs/admin"}]}
+[debug] [2026-02-10T14:27:10.280Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.280Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.281Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables [none]
+[debug] [2026-02-10T14:27:10.464Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables 200
+[debug] [2026-02-10T14:27:10.464Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables {"variables":[{"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z"}]}
+[debug] [2026-02-10T14:27:10.464Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.464Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:10.464Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin [none]
+[debug] [2026-02-10T14:27:10.600Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin 200
+[debug] [2026-02-10T14:27:10.600Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin {"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z","text":"1234"}
+[debug] [2026-02-10T14:27:10.606Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-02-10T14:27:11.603Z] > [functions] package.json contents: {
+  "name": "churchvote-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.1",
+    "firebase-functions": "^4.4.1"
+  }
+}
+[debug] [2026-02-10T14:27:11.603Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[info] i  functions: You are using a version of firebase-functions SDK (4.9.0) that does not have support for the newest Firebase Extensions features. Please update firebase-functions SDK to >=5.1.0 to use them correctly 
+[debug] [2026-02-10T14:27:11.604Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-02-10T14:27:11.613Z] Found firebase-functions binary at 'C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8583
+
+[debug] [2026-02-10T14:27:12.947Z] Got response from /__/functions.yaml {"endpoints":{"createPoll":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"callableTrigger":{},"entryPoint":"createPoll"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions (37.09 KB) for uploading 
+[debug] [2026-02-10T14:27:17.034Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:17.034Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:17.034Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions [none]
+[debug] [2026-02-10T14:27:17.862Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T14:27:17.862Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions {}
+[debug] [2026-02-10T14:27:17.863Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:17.863Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:17.863Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-02-10T14:27:18.423Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T14:27:18.423Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions {}
+[debug] [2026-02-10T14:27:18.429Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:18.429Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:18.429Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T14:27:18.591Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T14:27:18.592Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[debug] [2026-02-10T14:27:18.595Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:18.595Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:18.595Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-02-10T14:27:18.596Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-02-10T14:27:27.674Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-02-10T14:27:27.674Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770735448&Signature=ZQ7Ac2Ulq8g3eTrarwJ0vX%2FnGaBm2wcJAvQ%2Flbi69bYHWDdwO1kb4zP1L6plJ3JrEOLUeC%2BwqMH2fZHOz8jCREDyZNvD79kGdMgVfwlvNoc4jryNWmULEk1apn9gms9LCm2PLYI9qx6Hsx63wL6%2B3gd1W2UURJp%2FQ5WWwmNo9oKq%2FT0aILjCHSNhxp%2B%2FIfsk8Olh2%2F%2BAmSC%2BhoOtYJ6FXnIzpbj5FGnOSpsV003O1vjak2tw8FhXUTFRcAGvqsVUDWj4Cyx1s7t6k%2FdiwvrOIuUgK6RiM%2Bm9xuKsonhn3eF72JVKeByiiORwH%2Bff3h5DCranwLnZ8ZU68lxmydRp0g%3D%3D"}
+[debug] [2026-02-10T14:27:27.675Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip GoogleAccessId=service-389165574280%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1770735448&Signature=ZQ7Ac2Ulq8g3eTrarwJ0vX%2FnGaBm2wcJAvQ%2Flbi69bYHWDdwO1kb4zP1L6plJ3JrEOLUeC%2BwqMH2fZHOz8jCREDyZNvD79kGdMgVfwlvNoc4jryNWmULEk1apn9gms9LCm2PLYI9qx6Hsx63wL6%2B3gd1W2UURJp%2FQ5WWwmNo9oKq%2FT0aILjCHSNhxp%2B%2FIfsk8Olh2%2F%2BAmSC%2BhoOtYJ6FXnIzpbj5FGnOSpsV003O1vjak2tw8FhXUTFRcAGvqsVUDWj4Cyx1s7t6k%2FdiwvrOIuUgK6RiM%2Bm9xuKsonhn3eF72JVKeByiiORwH%2Bff3h5DCranwLnZ8ZU68lxmydRp0g%3D%3D
+[debug] [2026-02-10T14:27:27.675Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip [stream]
+[debug] [2026-02-10T14:27:28.018Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip 200
+[debug] [2026-02-10T14:27:28.019Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 20 (1st Gen) function createPoll(us-central1)... 
+[debug] [2026-02-10T14:27:28.028Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:28.028Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:28.028Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions [none]
+[debug] [2026-02-10T14:27:28.029Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions {"name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/5ccc2622-e0ae-4945-8b6c-0eb6cdc16baa.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770735448&Signature=ZQ7Ac2Ulq8g3eTrarwJ0vX%2FnGaBm2wcJAvQ%2Flbi69bYHWDdwO1kb4zP1L6plJ3JrEOLUeC%2BwqMH2fZHOz8jCREDyZNvD79kGdMgVfwlvNoc4jryNWmULEk1apn9gms9LCm2PLYI9qx6Hsx63wL6%2B3gd1W2UURJp%2FQ5WWwmNo9oKq%2FT0aILjCHSNhxp%2B%2FIfsk8Olh2%2F%2BAmSC%2BhoOtYJ6FXnIzpbj5FGnOSpsV003O1vjak2tw8FhXUTFRcAGvqsVUDWj4Cyx1s7t6k%2FdiwvrOIuUgK6RiM%2Bm9xuKsonhn3eF72JVKeByiiORwH%2Bff3h5DCranwLnZ8ZU68lxmydRp0g%3D%3D","entryPoint":"createPoll","runtime":"nodejs20","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-02-10T14:27:29.679Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions 400
+[debug] [2026-02-10T14:27:29.680Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions {"error":{"code":400,"message":"Failed to create 1st Gen function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll: Default service account '389165574280-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.","status":"FAILED_PRECONDITION"}}
+[warn] !  functions: failed to create function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll 
+[error] Failed to create function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll
+[debug] [2026-02-10T14:27:29.699Z] Total Function Deployment time: 1661
+[debug] [2026-02-10T14:27:29.699Z] 1 Functions Deployed
+[debug] [2026-02-10T14:27:29.699Z] 1 Functions Errored
+[debug] [2026-02-10T14:27:29.699Z] 0 Function Deployments Aborted
+[debug] [2026-02-10T14:27:29.699Z] Average Function Deployment time: 1659
+[info] 
+[info] Functions deploy had errors with the following functions:
+	createPoll(us-central1)
+[debug] [2026-02-10T14:27:29.831Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:29.831Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:27:29.831Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-02-10T14:27:30.271Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts 404
+[debug] [2026-02-10T14:27:30.271Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2026-02-10T14:27:30.271Z] Failed to check artifact cleanup policy for region us-central1: Request to https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts had HTTP Error: 404, Requested entity was not found.","status":404}
+[debug] [2026-02-10T14:27:30.272Z] Functions deploy failed.
+[debug] [2026-02-10T14:27:30.272Z] {
+  "endpoint": {
+    "id": "createPoll",
+    "project": "churchvote-ba9c1",
+    "region": "us-central1",
+    "entryPoint": "createPoll",
+    "platform": "gcfv1",
+    "runtime": "nodejs20",
+    "callableTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "churchvote-ba9c1",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "0cc0ff0f84bd94eb2666996ff32412739f02915a"
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 400,
+            "message": "Failed to create 1st Gen function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll: Default service account '389165574280-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.",
+            "status": "FAILED_PRECONDITION"
+          }
+        },
+        "response": {
+          "statusCode": 400
+        }
+      },
+      "exit": 1,
+      "message": "Request to https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions had HTTP Error: 400, Failed to create 1st Gen function projects/churchvote-ba9c1/locations/us-central1/functions/createPoll: Default service account '389165574280-compute@developer.gserviceaccount.com' doesn't exist. Please recreate this account or specify a different account. Please visit https://cloud.google.com/functions/docs/troubleshooting for in-depth troubleshooting documentation.",
+      "status": 400
+    },
+    "status": 400,
+    "code": 400
+  }
+}
+[debug] [2026-02-10T14:27:30.318Z] Error: Failed to create function createPoll in region us-central1
+    at C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:53:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Fabricator.createV1Function (C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:194:32)
+    at async Fabricator.createEndpoint (C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:135:13)
+    at async handle (C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:90:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2026-02-10T14:35:43.294Z] ----------------------------------------------------------------------
+[debug] [2026-02-10T14:35:43.296Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --project churchvote-ba9c1
+[debug] [2026-02-10T14:35:43.297Z] CLI Version:   15.5.1
+[debug] [2026-02-10T14:35:43.297Z] Platform:      win32
+[debug] [2026-02-10T14:35:43.297Z] Node Version:  v22.18.0
+[debug] [2026-02-10T14:35:43.297Z] Time:          Tue Feb 10 2026 07:35:43 GMT-0700 (Mountain Standard Time)
+[debug] [2026-02-10T14:35:43.297Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-10T14:35:45.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-10T14:35:45.372Z] > authorizing via signed-in user (hlwarkentin@gmail.com)
+[debug] [2026-02-10T14:35:45.372Z] [iam] checking project churchvote-ba9c1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-02-10T14:35:45.373Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.373Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.374Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions [none]
+[debug] [2026-02-10T14:35:45.374Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions  x-goog-user-project=churchvote-ba9c1
+[debug] [2026-02-10T14:35:45.374Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:35:45.639Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions 200
+[debug] [2026-02-10T14:35:45.639Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:35:45.639Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.640Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.640Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-02-10T14:35:45.640Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-02-10T14:35:45.844Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-02-10T14:35:45.844Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'churchvote-ba9c1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-02-10T14:35:45.847Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.847Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.847Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T14:35:45.940Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T14:35:45.940Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-02-10T14:35:45.942Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.942Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:45.942Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig [none]
+[debug] [2026-02-10T14:35:46.219Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig 200
+[debug] [2026-02-10T14:35:46.219Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig {"projectId":"churchvote-ba9c1","storageBucket":"churchvote-ba9c1.firebasestorage.app"}
+[debug] [2026-02-10T14:35:46.219Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.220Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.220Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs [none]
+[debug] [2026-02-10T14:35:46.509Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs 200
+[debug] [2026-02-10T14:35:46.509Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs {"configs":[{"name":"projects/churchvote-ba9c1/configs/admin"}]}
+[debug] [2026-02-10T14:35:46.509Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.509Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.509Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables [none]
+[debug] [2026-02-10T14:35:46.660Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables 200
+[debug] [2026-02-10T14:35:46.660Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables {"variables":[{"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z"}]}
+[debug] [2026-02-10T14:35:46.660Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.660Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:35:46.660Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin [none]
+[debug] [2026-02-10T14:35:46.803Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin 200
+[debug] [2026-02-10T14:35:46.803Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin {"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z","text":"1234"}
+[debug] [2026-02-10T14:35:46.805Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-02-10T14:35:47.852Z] > [functions] package.json contents: {
+  "name": "churchvote-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.1",
+    "firebase-functions": "^4.4.1"
+  }
+}
+[debug] [2026-02-10T14:35:47.852Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[info] i  functions: You are using a version of firebase-functions SDK (4.9.0) that does not have support for the newest Firebase Extensions features. Please update firebase-functions SDK to >=5.1.0 to use them correctly 
+[debug] [2026-02-10T14:35:47.854Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-02-10T14:35:47.861Z] Found firebase-functions binary at 'C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8562
+
+[debug] [2026-02-10T14:35:48.450Z] Got response from /__/functions.yaml {"endpoints":{"createPoll":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"callableTrigger":{},"entryPoint":"createPoll"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2026-02-10T14:36:48.014Z] ----------------------------------------------------------------------
+[debug] [2026-02-10T14:36:48.016Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --project churchvote-ba9c1
+[debug] [2026-02-10T14:36:48.017Z] CLI Version:   15.5.1
+[debug] [2026-02-10T14:36:48.017Z] Platform:      win32
+[debug] [2026-02-10T14:36:48.017Z] Node Version:  v22.18.0
+[debug] [2026-02-10T14:36:48.017Z] Time:          Tue Feb 10 2026 07:36:48 GMT-0700 (Mountain Standard Time)
+[debug] [2026-02-10T14:36:48.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-10T14:36:49.845Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-10T14:36:49.845Z] > authorizing via signed-in user (hlwarkentin@gmail.com)
+[debug] [2026-02-10T14:36:49.845Z] [iam] checking project churchvote-ba9c1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-02-10T14:36:49.846Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:49.847Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:49.847Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions [none]
+[debug] [2026-02-10T14:36:49.847Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions  x-goog-user-project=churchvote-ba9c1
+[debug] [2026-02-10T14:36:49.848Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:36:50.045Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions 200
+[debug] [2026-02-10T14:36:50.045Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T14:36:50.045Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.045Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.045Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-02-10T14:36:50.045Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-02-10T14:36:50.323Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-02-10T14:36:50.323Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'churchvote-ba9c1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-02-10T14:36:50.326Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.326Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.326Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T14:36:50.418Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T14:36:50.418Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-02-10T14:36:50.420Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.421Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.421Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig [none]
+[debug] [2026-02-10T14:36:50.631Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig 200
+[debug] [2026-02-10T14:36:50.631Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig {"projectId":"churchvote-ba9c1","storageBucket":"churchvote-ba9c1.firebasestorage.app"}
+[debug] [2026-02-10T14:36:50.631Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.631Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.632Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs [none]
+[debug] [2026-02-10T14:36:50.876Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs 200
+[debug] [2026-02-10T14:36:50.876Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs {"configs":[{"name":"projects/churchvote-ba9c1/configs/admin"}]}
+[debug] [2026-02-10T14:36:50.877Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.877Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:50.878Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables [none]
+[debug] [2026-02-10T14:36:51.058Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables 200
+[debug] [2026-02-10T14:36:51.058Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables {"variables":[{"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z"}]}
+[debug] [2026-02-10T14:36:51.058Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:51.058Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:51.058Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin [none]
+[debug] [2026-02-10T14:36:51.206Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin 200
+[debug] [2026-02-10T14:36:51.206Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin {"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z","text":"1234"}
+[debug] [2026-02-10T14:36:51.208Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-02-10T14:36:52.093Z] > [functions] package.json contents: {
+  "name": "churchvote-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.1",
+    "firebase-functions": "^4.4.1"
+  }
+}
+[debug] [2026-02-10T14:36:52.094Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[info] i  functions: You are using a version of firebase-functions SDK (4.9.0) that does not have support for the newest Firebase Extensions features. Please update firebase-functions SDK to >=5.1.0 to use them correctly 
+[debug] [2026-02-10T14:36:52.096Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-02-10T14:36:52.107Z] Found firebase-functions binary at 'C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8188
+
+[debug] [2026-02-10T14:36:52.798Z] Got response from /__/functions.yaml {"endpoints":{"createPoll":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"callableTrigger":{},"entryPoint":"createPoll"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions (37.09 KB) for uploading 
+[debug] [2026-02-10T14:36:56.864Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:56.864Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:56.864Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions [none]
+[debug] [2026-02-10T14:36:57.398Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T14:36:57.398Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions {}
+[debug] [2026-02-10T14:36:57.398Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:57.398Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:57.398Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-02-10T14:36:57.781Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T14:36:57.781Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions {}
+[debug] [2026-02-10T14:36:57.785Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:57.785Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:57.785Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T14:36:58.042Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T14:36:58.043Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[debug] [2026-02-10T14:36:58.044Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:58.044Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:58.045Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2026-02-10T14:36:58.045Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2026-02-10T14:36:58.498Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2026-02-10T14:36:58.498Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D"}
+[debug] [2026-02-10T14:36:58.499Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip GoogleAccessId=service-389165574280%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D
+[debug] [2026-02-10T14:36:58.499Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip [stream]
+[debug] [2026-02-10T14:36:58.801Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip 200
+[debug] [2026-02-10T14:36:58.802Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip [omitted]
+[info] +  functions: functions source uploaded successfully 
+[info] i  functions: creating Node.js 20 (1st Gen) function createPoll(us-central1)... 
+[debug] [2026-02-10T14:36:58.805Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:58.805Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:58.805Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions [none]
+[debug] [2026-02-10T14:36:58.805Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions {"name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","entryPoint":"createPoll","runtime":"nodejs20","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null,"buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}}
+[debug] [2026-02-10T14:36:59.386Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions 200
+[debug] [2026-02-10T14:36:59.386Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:36:59.388Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:59.388Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:36:59.389Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:36:59.533Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:36:59.534Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:37:00.047Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:00.047Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:00.048Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:00.048Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:00.175Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:00.176Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:37:01.178Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:01.179Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:01.179Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:01.180Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:01.322Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:01.322Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:37:03.327Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:03.328Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:03.328Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:03.328Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:03.478Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:03.478Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:37:07.489Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:07.489Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:07.489Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:07.489Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:07.634Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:07.635Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z"}}
+[debug] [2026-02-10T14:37:15.639Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:15.639Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:15.640Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:15.640Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:15.818Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:15.818Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:37:25.823Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:25.823Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:25.823Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:25.824Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:26.011Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:26.012Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:37:36.024Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:36.025Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:36.025Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:36.025Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:36.205Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:36.205Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:37:46.217Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:46.218Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:46.218Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:46.218Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:46.401Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:46.402Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:37:56.418Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:37:56.419Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:56.419Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:37:56.419Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:37:56.629Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:37:56.629Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:38:06.632Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:38:06.633Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:06.633Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:06.633Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:38:06.853Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:38:06.853Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","sourceToken":"3f2af209-f817-4e73-982c-0f937236a709","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:38:06.853Z] Got source token 3f2af209-f817-4e73-982c-0f937236a709 for region us-central1
+[debug] [2026-02-10T14:38:16.863Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:38:16.863Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:16.863Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:16.863Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:38:17.065Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:38:17.065Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:36:59.968198783Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","sourceToken":"3f2af209-f817-4e73-982c-0f937236a709","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"}}
+[debug] [2026-02-10T14:38:17.065Z] Got source token 3f2af209-f817-4e73-982c-0f937236a709 for region us-central1
+[debug] [2026-02-10T14:38:27.078Z] [create-default-us-central1-createPoll] Retrying task index 0
+[debug] [2026-02-10T14:38:27.078Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.078Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.079Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 [none]
+[debug] [2026-02-10T14:38:27.254Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 200
+[debug] [2026-02-10T14:38:27.255Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0 {"name":"operations/cHJvamVjdHMvY2h1cmNodm90ZS1iYTljMS9sb2NhdGlvbnMvdXMtY2VudHJhbDEvb3BlcmF0aW9ucy9vcGVyYXRpb24tMTc3MDczNDIxOTUyMi02NGE3OTMwMjU3MzQ2LWU1MDczOTExLTdmNTE5N2M0","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"createPoll","updateTime":"1970-01-01T00:00:00Z","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip?GoogleAccessId=service-389165574280@gcf-admin-robot.iam.gserviceaccount.com&Expires=1770736019&Signature=URvG8nVp9bdhqciOm9zDNyJBnrfqITJou7iIQoJf9STSa8f0gVBbz%2B0wN6hpr%2FS25ZZ3k7aKkT3fuXkKWS3MLwsZgbobqBeVZJmmRd92BXmpL5KZwu7PzbljoZP1ukicvA%2FeiKfOqYlN9riqwFsgOfozGUuTQP0gLgm058ixWThlI%2BPYQ%2BqeAcl6VU5YgHCrvy8nWKpl2Y%2BqRULAYUYvZQ6y5e6TkQsXot1qarrrQpSoCvTCoaW7cgUXUQA%2BjtoWOrpKHcAzlpSh%2F0wbXQSI9ReVHyDYxSCIT3Zz8eUKHRWJ22S9b0kpU5MeqYrVh%2Bhz6oLGfZmUaecnPLUrhCW9Nw%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2026-02-10T14:38:23.114453896Z","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","sourceToken":"3f2af209-f817-4e73-982c-0f937236a709","buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"url":"https://us-central1-churchvote-ba9c1.cloudfunctions.net/createPoll","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"createPoll","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"churchvote-ba9c1@appspot.gserviceaccount.com","updateTime":"2026-02-10T14:36:59.963405700Z","versionId":"1","labels":{"firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a","deployment-tool":"cli-firebase","deployment-callable":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","ingressSettings":"ALLOW_ALL","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/churchvote-ba9c1/serviceAccounts/389165574280-compute@developer.gserviceaccount.com","satisfiesPzi":true}}
+[debug] [2026-02-10T14:38:27.255Z] Got source token 3f2af209-f817-4e73-982c-0f937236a709 for region us-central1
+[debug] [2026-02-10T14:38:27.255Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.256Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.256Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions/createPoll:setIamPolicy [none]
+[debug] [2026-02-10T14:38:27.256Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions/createPoll:setIamPolicy {"policy":{"bindings":[{"role":"roles/cloudfunctions.invoker","members":["allUsers"]}],"etag":"","version":3},"updateMask":"bindings,etag,version"}
+[debug] [2026-02-10T14:38:27.594Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions/createPoll:setIamPolicy 200
+[debug] [2026-02-10T14:38:27.594Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/functions/createPoll:setIamPolicy {"version":1,"etag":"BwZKeTVuDxg=","bindings":[{"role":"roles/cloudfunctions.invoker","members":["allUsers"]}]}
+[info] +  functions[createPoll(us-central1)] Successful create operation. 
+[debug] [2026-02-10T14:38:27.598Z] Total Function Deployment time: 88790
+[debug] [2026-02-10T14:38:27.598Z] 1 Functions Deployed
+[debug] [2026-02-10T14:38:27.598Z] 0 Functions Errored
+[debug] [2026-02-10T14:38:27.598Z] 0 Function Deployments Aborted
+[debug] [2026-02-10T14:38:27.598Z] Average Function Deployment time: 88790
+[debug] [2026-02-10T14:38:27.763Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.763Z] Checked if tokens are valid: true, expires at: 1770737181424
+[debug] [2026-02-10T14:38:27.763Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-02-10T14:38:52.303Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2026-02-10T14:38:52.303Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts {"name":"projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-02-10T14:37:09.999595Z","updateTime":"2026-02-10T14:37:53.625115Z","mode":"STANDARD_REPOSITORY","sizeBytes":"510799657","vulnerabilityScanningConfig":{"lastEnableTime":"2026-02-10T14:37:01.987611094Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/churchvote-ba9c1/gcf-artifacts"}
+[warn] !  functions: No cleanup policy detected for repositories in us-central1. This may result in a small monthly bill as container images accumulate over time. 
+[debug] [2026-02-10T15:29:25.690Z] ----------------------------------------------------------------------
+[debug] [2026-02-10T15:29:25.693Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --project=churchvote-ba9c1 --debug
+[debug] [2026-02-10T15:29:25.694Z] CLI Version:   15.5.1
+[debug] [2026-02-10T15:29:25.694Z] Platform:      win32
+[debug] [2026-02-10T15:29:25.694Z] Node Version:  v22.18.0
+[debug] [2026-02-10T15:29:25.694Z] Time:          Tue Feb 10 2026 08:29:25 GMT-0700 (Mountain Standard Time)
+[debug] [2026-02-10T15:29:25.694Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-10T15:29:28.715Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-10T15:29:28.716Z] > authorizing via signed-in user (hlwarkentin@gmail.com)
+[debug] [2026-02-10T15:29:28.716Z] [iam] checking project churchvote-ba9c1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-02-10T15:29:28.718Z] Checked if tokens are valid: false, expires at: 1770737181424
+[debug] [2026-02-10T15:29:28.718Z] Checked if tokens are valid: false, expires at: 1770737181424
+[debug] [2026-02-10T15:29:28.719Z] > refreshing access token with scopes: []
+[debug] [2026-02-10T15:29:28.721Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-10T15:29:28.722Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-10T15:29:28.943Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-10T15:29:28.944Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-10T15:29:28.950Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions [none]
+[debug] [2026-02-10T15:29:28.950Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions  x-goog-user-project=churchvote-ba9c1
+[debug] [2026-02-10T15:29:28.951Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T15:29:29.304Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions 200
+[debug] [2026-02-10T15:29:29.304Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-10T15:29:29.306Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.306Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.307Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-02-10T15:29:29.308Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-02-10T15:29:29.626Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2026-02-10T15:29:29.626Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/churchvote-ba9c1/serviceAccounts/churchvote-ba9c1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'churchvote-ba9c1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-02-10T15:29:29.630Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.630Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.630Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T15:29:29.732Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T15:29:29.733Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-02-10T15:29:29.735Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.735Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:29.736Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig [none]
+[debug] [2026-02-10T15:29:30.029Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig 200
+[debug] [2026-02-10T15:29:30.029Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1/adminSdkConfig {"projectId":"churchvote-ba9c1","storageBucket":"churchvote-ba9c1.firebasestorage.app"}
+[debug] [2026-02-10T15:29:30.030Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.030Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.030Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs [none]
+[debug] [2026-02-10T15:29:30.279Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs 200
+[debug] [2026-02-10T15:29:30.280Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs {"configs":[{"name":"projects/churchvote-ba9c1/configs/admin"}]}
+[debug] [2026-02-10T15:29:30.280Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.281Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.281Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables [none]
+[debug] [2026-02-10T15:29:30.440Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables 200
+[debug] [2026-02-10T15:29:30.440Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables {"variables":[{"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z"}]}
+[debug] [2026-02-10T15:29:30.441Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.441Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:30.441Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin [none]
+[debug] [2026-02-10T15:29:30.582Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin 200
+[debug] [2026-02-10T15:29:30.582Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/churchvote-ba9c1/configs/admin/variables/pin {"name":"projects/churchvote-ba9c1/configs/admin/variables/pin","updateTime":"2026-02-09T02:27:05.449247779Z","text":"1234"}
+[debug] [2026-02-10T15:29:30.585Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-02-10T15:29:31.672Z] > [functions] package.json contents: {
+  "name": "churchvote-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "dependencies": {
+    "firebase-admin": "^11.10.1",
+    "firebase-functions": "^4.4.1"
+  }
+}
+[debug] [2026-02-10T15:29:31.673Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[info] i  functions: You are using a version of firebase-functions SDK (4.9.0) that does not have support for the newest Firebase Extensions features. Please update firebase-functions SDK to >=5.1.0 to use them correctly 
+[debug] [2026-02-10T15:29:31.674Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-02-10T15:29:31.682Z] Found firebase-functions binary at 'C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8267
+
+[debug] [2026-02-10T15:29:32.544Z] Got response from /__/functions.yaml {"endpoints":{"createPoll":{"platform":"gcfv1","labels":{},"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"callableTrigger":{},"entryPoint":"createPoll"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\Scott\Downloads\ChurchVote\ChurchVote\functions (37.09 KB) for uploading 
+[debug] [2026-02-10T15:29:36.607Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:36.607Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:36.608Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions [none]
+[debug] [2026-02-10T15:29:37.138Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T15:29:37.138Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/churchvote-ba9c1/locations/-/functions {"functions":[{"name":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll","httpsTrigger":{"url":"https://us-central1-churchvote-ba9c1.cloudfunctions.net/createPoll","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"createPoll","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"churchvote-ba9c1@appspot.gserviceaccount.com","updateTime":"2026-02-10T14:38:23.230252050Z","versionId":"1","labels":{"firebase-functions-hash":"0cc0ff0f84bd94eb2666996ff32412739f02915a","deployment-tool":"cli-firebase","deployment-callable":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-964824670405.us-central1.cloudfunctions.appspot.com/1975e24e-5774-4d83-8032-c97d62a66b17.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"churchvote-ba9c1\",\"storageBucket\":\"churchvote-ba9c1.firebasestorage.app\"}","GCLOUD_PROJECT":"churchvote-ba9c1","EVENTARC_CLOUD_EVENT_SOURCE":"projects/churchvote-ba9c1/locations/us-central1/functions/createPoll"},"runtime":"nodejs20","ingressSettings":"ALLOW_ALL","buildId":"ff5fa197-dc20-47ce-825d-c3a6fd811f5f","buildEnvironmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"buildName":"projects/389165574280/locations/us-central1/builds/ff5fa197-dc20-47ce-825d-c3a6fd811f5f","dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{},"buildServiceAccount":"projects/churchvote-ba9c1/serviceAccounts/389165574280-compute@developer.gserviceaccount.com","satisfiesPzi":true}]}
+[debug] [2026-02-10T15:29:37.139Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:37.140Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:37.140Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-02-10T15:29:37.704Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions 200
+[debug] [2026-02-10T15:29:37.704Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/churchvote-ba9c1/locations/-/functions {}
+[debug] [2026-02-10T15:29:37.708Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:37.708Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:37.708Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-10T15:29:37.972Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 200
+[debug] [2026-02-10T15:29:37.972Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1 {"projectNumber":"389165574280","projectId":"churchvote-ba9c1","lifecycleState":"ACTIVE","name":"ChurchVote","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2026-02-01T00:37:34.461953Z"}
+[info] i  functions: Skipping the deploy of unchanged functions. 
+[info] +  functions[createPoll(us-central1)] Skipped (No changes detected) 
+[debug] [2026-02-10T15:29:37.977Z] Total Function Deployment time: 0
+[debug] [2026-02-10T15:29:37.978Z] 0 Functions Deployed
+[debug] [2026-02-10T15:29:37.978Z] 0 Functions Errored
+[debug] [2026-02-10T15:29:37.978Z] 0 Function Deployments Aborted
+[debug] [2026-02-10T15:29:37.978Z] Average Function Deployment time: NaN
+[debug] [2026-02-10T15:29:38.108Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:38.108Z] Checked if tokens are valid: true, expires at: 1770740967944
+[debug] [2026-02-10T15:29:38.109Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts [none]
+[debug] [2026-02-10T15:29:38.361Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2026-02-10T15:29:38.361Z] <<< [apiv2][body] GET https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts {"name":"projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-02-10T14:37:09.999595Z","updateTime":"2026-02-10T14:37:53.625115Z","mode":"STANDARD_REPOSITORY","sizeBytes":"510799657","vulnerabilityScanningConfig":{"lastEnableTime":"2026-02-10T14:37:01.987611094Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true,"registryUri":"us-central1-docker.pkg.dev/churchvote-ba9c1/gcf-artifacts"}
+[warn] !  functions: No cleanup policy detected for repositories in us-central1. This may result in a small monthly bill as container images accumulate over time. 
+[info] i  functions: Configuring cleanup policy for repository in us-central1. Images older than 1 days will be automatically deleted. 
+[debug] [2026-02-10T16:42:56.785Z] Setting up artifact cleanup policy for region us-central1
+[debug] [2026-02-10T16:42:56.788Z] Checked if tokens are valid: false, expires at: 1770740967944
+[debug] [2026-02-10T16:42:56.788Z] Checked if tokens are valid: false, expires at: 1770740967944
+[debug] [2026-02-10T16:42:56.789Z] > refreshing access token with scopes: []
+[debug] [2026-02-10T16:42:56.793Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-10T16:42:56.793Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-10T16:42:56.983Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-10T16:42:56.983Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-10T16:42:56.992Z] >>> [apiv2][query] PATCH https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts updateMask=name%2CcleanupPolicies%2CcleanupPolicyDryRun%2Clabels
+[debug] [2026-02-10T16:42:56.992Z] >>> [apiv2][body] PATCH https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts {"name":"projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","condition":{"tagState":"ANY","olderThan":"86400s"},"action":"DELETE"}},"cleanupPolicyDryRun":false,"labels":{"goog-managed-by":"cloudfunctions"}}
+[debug] [2026-02-10T16:42:57.497Z] <<< [apiv2][status] PATCH https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts 200
+[debug] [2026-02-10T16:42:57.497Z] <<< [apiv2][body] PATCH https://artifactregistry.googleapis.com/v1/projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts {"name":"projects/churchvote-ba9c1/locations/us-central1/repositories/gcf-artifacts","format":"DOCKER","description":"This repository is created and used by Cloud Functions for storing function docker images.","labels":{"goog-managed-by":"cloudfunctions"},"createTime":"2026-02-10T14:37:09.999595Z","updateTime":"2026-02-10T16:42:58.218189Z","mode":"STANDARD_REPOSITORY","cleanupPolicies":{"firebase-functions-cleanup":{"id":"firebase-functions-cleanup","action":"DELETE","condition":{"tagState":"ANY","olderThan":"86400s"}}},"vulnerabilityScanningConfig":{"lastEnableTime":"2026-02-10T14:37:01.987611094Z","enablementState":"SCANNING_DISABLED","enablementStateReason":"API containerscanning.googleapis.com is not enabled."},"satisfiesPzi":true}
+[info] i  functions: Configured cleanup policy for repository in us-central1. 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/churchvote-ba9c1/overview

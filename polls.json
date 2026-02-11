@@ -1,0 +1,236 @@
+{
+  "documents": [
+    {
+      "name": "projects/churchvote-ba9c1/databases/(default)/documents/artifacts/church-vote-production/public/data/polls/WfKz1TAoRS394J1RRZVV",
+      "fields": {
+        "isActive": {
+          "booleanValue": true
+        },
+        "accessCode": {
+          "stringValue": "9605"
+        },
+        "options": {
+          "arrayValue": {
+            "values": [
+              {
+                "stringValue": "Yes"
+              },
+              {
+                "stringValue": "No"
+              }
+            ]
+          }
+        },
+        "questions": {
+          "arrayValue": {
+            "values": [
+              {
+                "mapValue": {
+                  "fields": {
+                    "question": {
+                      "stringValue": "Automated test poll?"
+                    },
+                    "options": {
+                      "arrayValue": {
+                        "values": [
+                          {
+                            "stringValue": "Yes"
+                          },
+                          {
+                            "stringValue": "No"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "question": {
+          "stringValue": "Automated test poll?"
+        },
+        "createdAt": {
+          "timestampValue": "2026-02-10T20:58:59.480Z"
+        }
+      },
+      "createTime": "2026-02-10T20:58:59.587665Z",
+      "updateTime": "2026-02-10T20:58:59.587665Z"
+    },
+    {
+      "name": "projects/churchvote-ba9c1/databases/(default)/documents/artifacts/church-vote-production/public/data/polls/bEk645dP3o6ZyGrq8Jxz",
+      "fields": {
+        "question": {
+          "stringValue": "Automated test poll?"
+        },
+        "options": {
+          "arrayValue": {
+            "values": [
+              {
+                "stringValue": "Yes"
+              },
+              {
+                "stringValue": "No"
+              }
+            ]
+          }
+        },
+        "isActive": {
+          "booleanValue": true
+        },
+        "createdAt": {
+          "timestampValue": "2026-02-10T20:58:54.025Z"
+        },
+        "questions": {
+          "arrayValue": {
+            "values": [
+              {
+                "mapValue": {
+                  "fields": {
+                    "question": {
+                      "stringValue": "Automated test poll?"
+                    },
+                    "options": {
+                      "arrayValue": {
+                        "values": [
+                          {
+                            "stringValue": "Yes"
+                          },
+                          {
+                            "stringValue": "No"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "accessCode": {
+          "stringValue": "8881"
+        }
+      },
+      "createTime": "2026-02-10T20:58:54.186521Z",
+      "updateTime": "2026-02-10T20:58:54.186521Z"
+    },
+    {
+      "name": "projects/churchvote-ba9c1/databases/(default)/documents/artifacts/church-vote-production/public/data/polls/tirkZwa4ChYZ4t3QygYh",
+      "fields": {
+        "accessCode": {
+          "stringValue": "1371"
+        },
+        "question": {
+          "stringValue": "Automated test poll?"
+        },
+        "isActive": {
+          "booleanValue": true
+        },
+        "options": {
+          "arrayValue": {
+            "values": [
+              {
+                "stringValue": "Yes"
+              },
+              {
+                "stringValue": "No"
+              }
+            ]
+          }
+        },
+        "questions": {
+          "arrayValue": {
+            "values": [
+              {
+                "mapValue": {
+                  "fields": {
+                    "question": {
+                      "stringValue": "Automated test poll?"
+                    },
+                    "options": {
+                      "arrayValue": {
+                        "values": [
+                          {
+                            "stringValue": "Yes"
+                          },
+                          {
+                            "stringValue": "No"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "createdAt": {
+          "timestampValue": "2026-02-10T20:58:52.137Z"
+        }
+      },
+      "createTime": "2026-02-10T20:58:52.341596Z",
+      "updateTime": "2026-02-10T20:58:52.341596Z"
+    },
+    {
+      "name": "projects/churchvote-ba9c1/databases/(default)/documents/artifacts/church-vote-production/public/data/polls/voh2X0F3ZAys7UwQjUMB",
+      "fields": {
+        "question": {
+          "stringValue": "Automated test poll?"
+        },
+        "options": {
+          "arrayValue": {
+            "values": [
+              {
+                "stringValue": "Yes"
+              },
+              {
+                "stringValue": "No"
+              }
+            ]
+          }
+        },
+        "isActive": {
+          "booleanValue": true
+        },
+        "createdAt": {
+          "timestampValue": "2026-02-10T20:59:03.394Z"
+        },
+        "accessCode": {
+          "stringValue": "2117"
+        },
+        "questions": {
+          "arrayValue": {
+            "values": [
+              {
+                "mapValue": {
+                  "fields": {
+                    "question": {
+                      "stringValue": "Automated test poll?"
+                    },
+                    "options": {
+                      "arrayValue": {
+                        "values": [
+                          {
+                            "stringValue": "Yes"
+                          },
+                          {
+                            "stringValue": "No"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "createTime": "2026-02-10T20:59:03.420314Z",
+      "updateTime": "2026-02-10T20:59:03.420314Z"
+    }
+  ]
+}

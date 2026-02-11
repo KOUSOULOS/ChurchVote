@@ -1,0 +1,115 @@
+[debug] [2026-02-11T03:00:25.737Z] ----------------------------------------------------------------------
+[debug] [2026-02-11T03:00:25.739Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Scott\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project churchvote-ba9c1
+[debug] [2026-02-11T03:00:25.739Z] CLI Version:   15.5.1
+[debug] [2026-02-11T03:00:25.739Z] Platform:      win32
+[debug] [2026-02-11T03:00:25.740Z] Node Version:  v22.18.0
+[debug] [2026-02-11T03:00:25.740Z] Time:          Tue Feb 10 2026 20:00:25 GMT-0700 (Mountain Standard Time)
+[debug] [2026-02-11T03:00:25.740Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-11T03:00:28.521Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-11T03:00:28.522Z] > authorizing via signed-in user (hlwarkentin@gmail.com)
+[debug] [2026-02-11T03:00:28.522Z] [iam] checking project churchvote-ba9c1 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-11T03:00:28.524Z] Checked if tokens are valid: false, expires at: 1770745375983
+[debug] [2026-02-11T03:00:28.524Z] Checked if tokens are valid: false, expires at: 1770745375983
+[debug] [2026-02-11T03:00:28.524Z] > refreshing access token with scopes: []
+[debug] [2026-02-11T03:00:28.526Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-11T03:00:28.526Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-11T03:00:28.793Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-11T03:00:28.794Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-11T03:00:28.800Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions [none]
+[debug] [2026-02-11T03:00:28.800Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions  x-goog-user-project=churchvote-ba9c1
+[debug] [2026-02-11T03:00:28.801Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-11T03:00:29.136Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions 200
+[debug] [2026-02-11T03:00:29.136Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/churchvote-ba9c1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-11T03:00:29.137Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:29.138Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:29.138Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1 [none]
+[debug] [2026-02-11T03:00:29.442Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1 200
+[debug] [2026-02-11T03:00:29.443Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/churchvote-ba9c1 {"projectId":"churchvote-ba9c1","projectNumber":"389165574280","displayName":"ChurchVote","name":"projects/churchvote-ba9c1","resources":{"hostingSite":"churchvote-ba9c1"},"state":"ACTIVE","etag":"1_11e70d19-afb7-4dd7-8f8d-e27cd8f29da4"}
+[info] 
+[info] === Deploying to 'churchvote-ba9c1'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-02-11T03:00:29.464Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:29.464Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:29.465Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions [none]
+[debug] [2026-02-11T03:00:29.466Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-02-11T03:00:30.480Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions 200
+[debug] [2026-02-11T03:00:30.480Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions {"name":"projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[churchvote-ba9c1]: beginning deploy... 
+[info] i  hosting[churchvote-ba9c1]: found 3 files in dist 
+[debug] [2026-02-11T03:00:30.493Z] [hosting] uploading with 200 concurrency
+[debug] [2026-02-11T03:00:30.514Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.514Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.516Z] [hosting] hash cache [ZGlzdA] stored for 3 files
+[debug] [2026-02-11T03:00:30.516Z] [hosting][hash queue][FINAL] {"max":17,"min":3,"avg":8,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":21}
+[debug] [2026-02-11T03:00:30.516Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84:populateFiles [none]
+[debug] [2026-02-11T03:00:30.517Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84:populateFiles {"files":{"/index.html":"e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714","/assets/index.esm-94EezyUq.js":"825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00","/assets/index-DjtKw-S8.js":"19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27"}}
+[debug] [2026-02-11T03:00:30.903Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84:populateFiles 200
+[debug] [2026-02-11T03:00:30.904Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84:populateFiles {"uploadRequiredHashes":["e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714","825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00","19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files"}
+[debug] [2026-02-11T03:00:30.905Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.905Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.905Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.906Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.906Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.906Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:30.907Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714 [none]
+[debug] [2026-02-11T03:00:30.907Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714 [stream]
+[debug] [2026-02-11T03:00:30.908Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00 [none]
+[debug] [2026-02-11T03:00:30.909Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00 [stream]
+[debug] [2026-02-11T03:00:30.910Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27 [none]
+[debug] [2026-02-11T03:00:30.911Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27 [stream]
+[debug] [2026-02-11T03:00:30.912Z] [hosting][populate queue][FINAL] {"max":392,"min":392,"avg":392,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":398}
+[debug] [2026-02-11T03:00:30.912Z] [hosting] uploads queued: 3
+[debug] [2026-02-11T03:00:31.484Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00 200
+[debug] [2026-02-11T03:00:31.484Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/825288951d255a2cf9dd8883933e5079d99277c865610efd3e9c9f2d8f449b00 [stream]
+[debug] [2026-02-11T03:00:31.696Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714 200
+[debug] [2026-02-11T03:00:31.696Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/e28530cfef7d821e166109d77eaeb9575e5194c0ac4e8830cfea07c452fcb714 [stream]
+[debug] [2026-02-11T03:00:31.803Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27 200
+[debug] [2026-02-11T03:00:31.803Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/churchvote-ba9c1/versions/525d88e6bcedfc84/files/19b655bf74d299e03b87796583f63638da74584684a3bec0dc203efa05129b27 [stream]
+[debug] [2026-02-11T03:00:31.804Z] [hosting][upload queue][FINAL] {"max":898,"min":579,"avg":756.3333333333334,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":900}
+[info] +  hosting[churchvote-ba9c1]: file upload complete 
+[debug] [2026-02-11T03:00:31.805Z] [hosting] deploy completed after 1322ms
+[debug] [2026-02-11T03:00:31.805Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "churchvote-ba9c1"
+    },
+    "version": "projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84"
+  }
+]
+[info] i  hosting[churchvote-ba9c1]: finalizing version... 
+[debug] [2026-02-11T03:00:31.807Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:31.807Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:31.807Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions/525d88e6bcedfc84 updateMask=status%2Cconfig
+[debug] [2026-02-11T03:00:31.808Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions/525d88e6bcedfc84 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2026-02-11T03:00:32.339Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions/525d88e6bcedfc84 200
+[debug] [2026-02-11T03:00:32.340Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/versions/525d88e6bcedfc84 {"name":"projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-02-11T03:00:31.536465Z","createUser":{"email":"hlwarkentin@gmail.com"},"finalizeTime":"2026-02-11T03:00:33.765774Z","finalizeUser":{"email":"hlwarkentin@gmail.com"}}
+[debug] [2026-02-11T03:00:32.344Z] [hosting] finalized version for churchvote-ba9c1:[object Object]
+[info] +  hosting[churchvote-ba9c1]: version finalized 
+[info] i  hosting[churchvote-ba9c1]: releasing new version... 
+[debug] [2026-02-11T03:00:32.346Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:32.346Z] Checked if tokens are valid: true, expires at: 1770782427794
+[debug] [2026-02-11T03:00:32.347Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/channels/live/releases versionName=projects%2F389165574280%2Fsites%2Fchurchvote-ba9c1%2Fversions%2F525d88e6bcedfc84
+[debug] [2026-02-11T03:00:32.348Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/channels/live/releases {}
+[debug] [2026-02-11T03:00:32.811Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/channels/live/releases 200
+[debug] [2026-02-11T03:00:32.812Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/churchvote-ba9c1/channels/live/releases {"name":"projects/389165574280/sites/churchvote-ba9c1/channels/live/releases/1770778833620000","version":{"name":"projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-02-11T03:00:31.536465Z","createUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"},"finalizeTime":"2026-02-11T03:00:33.765774Z","finalizeUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"}},"type":"DEPLOY","releaseTime":"2026-02-11T03:00:33.620Z","releaseUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"}}
+[debug] [2026-02-11T03:00:32.812Z] [hosting] release: {"name":"projects/389165574280/sites/churchvote-ba9c1/channels/live/releases/1770778833620000","version":{"name":"projects/389165574280/sites/churchvote-ba9c1/versions/525d88e6bcedfc84","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-02-11T03:00:31.536465Z","createUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"},"finalizeTime":"2026-02-11T03:00:33.765774Z","finalizeUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"}},"type":"DEPLOY","releaseTime":"2026-02-11T03:00:33.620Z","releaseUser":{"email":"hlwarkentin@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocLNask9LAool_RUC7pDglSI3dmxW1x4vp30F-8ixQ-Z5Xx1YoQF=mo"}}
+[info] +  hosting[churchvote-ba9c1]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/churchvote-ba9c1/overview
+[info] Hosting URL: https://churchvote-ba9c1.web.app

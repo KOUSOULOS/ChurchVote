@@ -1,0 +1,16 @@
+{
+  "fields": {
+    "method": {
+      "stringValue": "manual"
+    },
+    "votedAt": {
+      "timestampValue": "2026-02-10T20:59:55Z"
+    },
+    "optionIndex": {
+      "integerValue": "0"
+    },
+    "userId": {
+      "stringValue": "91blS11AD5MKlA6TLCYrtYvhuYj2"
+    }
+  }
+}
