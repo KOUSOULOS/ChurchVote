@@ -190,8 +190,12 @@ const VoterView = ({ user }) => {
                  setLoading(false);
                  return;
              }
-             const questions = data.questions || [{ question: data.question, options: data.options }];
-             setActivePoll({ id: pollDoc.id, ...data, questions });
+             if (!Array.isArray(data.questions) || data.questions.length === 0) {
+               setError('Poll data is invalid.');
+               setLoading(false);
+               return;
+             }
+             setActivePoll({ id: pollDoc.id, ...data, questions: data.questions });
         } else {
              setError('Poll not found.');
         }
@@ -210,8 +214,12 @@ const VoterView = ({ user }) => {
     const unsubPoll = onSnapshot(pollRef, (doc) => {
         if (doc.exists()) {
             const data = doc.data();
-            const questions = data.questions || [{ question: data.question, options: data.options }];
-            setActivePoll(prev => ({ ...prev, ...data, questions, id: doc.id }));
+            if (!Array.isArray(data.questions) || data.questions.length === 0) {
+              console.warn('Active poll missing structured questions, exiting:', doc.id);
+              handleExit();
+              return;
+            }
+            setActivePoll(prev => ({ ...prev, ...data, questions: data.questions, id: doc.id }));
         } else {
             handleExit();
         }
@@ -273,9 +281,13 @@ const VoterView = ({ user }) => {
 
       const pollDoc = snapshot.docs[0];
       const data = pollDoc.data();
-      const questions = data.questions || [{ question: data.question, options: data.options }];
-      
-      setActivePoll({ id: pollDoc.id, ...data, questions });
+      if (!Array.isArray(data.questions) || data.questions.length === 0) {
+        setError('Poll data is invalid.');
+        setLoading(false);
+        return;
+      }
+
+      setActivePoll({ id: pollDoc.id, ...data, questions: data.questions });
       setLoading(false);
     } catch (err) {
       console.error(err);
@@ -515,12 +527,13 @@ const LeaderView = () => {
     
     const unsub = onSnapshot(q, (snapshot) => {
         const polls = snapshot.docs.map(doc => {
-            const data = doc.data();
-            if (!data.questions) {
-                data.questions = [{ question: data.question, options: data.options }];
-            }
-            return { id: doc.id, ...data };
-        });
+          const data = doc.data();
+          if (!Array.isArray(data.questions) || data.questions.length === 0) {
+            console.warn('Skipping poll without structured questions:', doc.id);
+            return null;
+          }
+          return { id: doc.id, ...data };
+        }).filter(Boolean);
         setActivePolls(polls);
     }, (err) => console.log("Leader Polls Error:", err));
     return () => unsub();
@@ -581,9 +594,7 @@ const LeaderView = () => {
         questions: finalQuestions,
         accessCode: code,
         isActive: true,
-        createdAt: serverTimestamp(),
-        question: finalQuestions[0].question,
-        options: finalQuestions[0].options
+        createdAt: serverTimestamp()
       });
 
       setQuestions([]);
@@ -619,9 +630,7 @@ const LeaderView = () => {
         questions: sample,
         accessCode: code,
         isActive: true,
-        createdAt: serverTimestamp(),
-        question: sample[0].question,
-        options: sample[0].options
+        createdAt: serverTimestamp()
       });
       alert('Created test poll (client): ' + docRef.id + ' (code: ' + code + ')');
       setViewState('list');

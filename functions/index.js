@@ -28,8 +28,7 @@ exports.createPoll = functions.https.onCall(async (data, context) => {
     accessCode: code,
     isActive: true,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
-    question: questions[0].question,
-    options: questions[0].options
+    // legacy single-question fields removed; clients must use `questions` array
   };
 
   const docRef = await pollsRef.add(payload);
