@@ -484,12 +484,12 @@ const VoterView = ({ user }) => {
         {!hasVoted && (
             <div className="p-6 bg-slate-50 border-t border-slate-200">
                 <button
-                    onClick={handleSubmitBallot}
-                    disabled={!allQuestionsAnswered}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-200 disabled:opacity-50 disabled:shadow-none transition-all flex items-center justify-center gap-2 text-lg"
+                  onClick={handleSubmitBallot}
+                  disabled={!allQuestionsAnswered}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-200 disabled:opacity-50 disabled:shadow-none transition-all flex items-center justify-center gap-2 text-lg"
                 >
-                    {allQuestionsAnswered ? 'Submit Ballot' : `Answer All Questions (${Object.keys(selections).length}/{activePoll.questions.length})`} 
-                    {allQuestionsAnswered && <ArrowRight size={20} />}
+                  {allQuestionsAnswered ? 'Submit Ballot' : `Answer All Questions (${Object.keys(selections).length}/${activePoll.questions.length})`} 
+                  {allQuestionsAnswered && <ArrowRight size={20} />}
                 </button>
             </div>
         )}
