@@ -651,31 +651,44 @@ const LeaderView = () => {
   // Sub-component for individual poll in dashboard
   const DashboardPoll = ({ poll }) => {
     const [votes, setVotes] = useState([]);
+    const [localActive, setLocalActive] = useState(poll.isActive);
+    const [isToggling, setIsToggling] = useState(false);
 
     useEffect(() => {
-        const vRef = collection(db, 'artifacts', appId, 'public', 'data', `poll_${poll.id}_votes`);
-        const unsub = onSnapshot(vRef, snap => setVotes(snap.docs.map(d => d.data())), err => console.log(err));
-        return () => unsub();
+      const vRef = collection(db, 'artifacts', appId, 'public', 'data', `poll_${poll.id}_votes`);
+      const unsub = onSnapshot(vRef, snap => setVotes(snap.docs.map(d => d.data())), err => console.log(err));
+      return () => unsub();
     }, [poll.id]);
+
+    // Keep a local optimistic active-state so the UI doesn't flip when the
+    // client attempts a fallback write that gets rejected by security rules.
+    useEffect(() => {
+      setLocalActive(poll.isActive);
+    }, [poll.isActive]);
 
     const total = votes.length;
     const toggleActive = async () => {
-      // Poll documents are protected by security rules; perform server-side
-      // toggle via callable function to avoid client write rejections and
-      // reactive local cache flip-flop.
+      if (isToggling) return;
+      setIsToggling(true);
+      const target = !localActive;
       try {
         const { getFunctions, httpsCallable } = await import('firebase/functions');
         const functions = getFunctions(app);
         const toggle = httpsCallable(functions, 'togglePollActive');
-        await toggle({ pin: '1234', appId, pollId: poll.id, isActive: !poll.isActive });
+        await toggle({ pin: '1234', appId, pollId: poll.id, isActive: target });
+        // optimistic local update until snapshot refreshes
+        setLocalActive(target);
       } catch (err) {
         console.warn('togglePollActive callable failed, falling back to client update:', err);
         try {
-          await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'polls', poll.id), { isActive: !poll.isActive });
+          await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'polls', poll.id), { isActive: target });
+          setLocalActive(target);
         } catch (err2) {
           console.error('Failed to toggle poll active state:', err2);
           alert('Unable to toggle poll active state. Check console for details.');
         }
+      } finally {
+        setIsToggling(false);
       }
     };
 
@@ -688,8 +701,8 @@ const LeaderView = () => {
                 </div>
                 <div className="text-right flex items-center gap-3">
                     <div>
-                        <div className={`text-[10px] font-bold px-2 py-1 rounded uppercase inline-block mb-1 ${poll.isActive ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
-                            {poll.isActive ? 'Voting Open' : 'Closed'}
+                        <div className={`text-[10px] font-bold px-2 py-1 rounded uppercase inline-block mb-1 ${localActive ? 'bg-green-500 text-white' : 'bg-red-500 text-white'}`}>
+                          {localActive ? 'Voting Open' : 'Closed'}
                         </div>
                         <div className="text-slate-400 text-xs">{total} votes</div>
                     </div>
@@ -736,8 +749,8 @@ const LeaderView = () => {
                 >
                     <Printer size={16} /> Print QR Cards
                 </button>
-                <button onClick={toggleActive} className={`flex-1 py-2 rounded-lg text-sm font-bold border ${poll.isActive ? 'border-red-200 text-red-600 hover:bg-red-50' : 'border-green-200 text-green-600 hover:bg-green-50'}`}>
-                    {poll.isActive ? 'Stop' : 'Open'}
+                <button onClick={toggleActive} disabled={isToggling} className={`flex-1 py-2 rounded-lg text-sm font-bold border ${localActive ? 'border-red-200 text-red-600 hover:bg-red-50' : 'border-green-200 text-green-600 hover:bg-green-50'} ${isToggling ? 'opacity-60 cursor-wait' : ''}`}>
+                  {isToggling ? 'Updating…' : (localActive ? 'Stop' : 'Open')}
                 </button>
             </div>
         </div>
