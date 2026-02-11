@@ -34,3 +34,28 @@ exports.createPoll = functions.https.onCall(async (data, context) => {
   const docRef = await pollsRef.add(payload);
   return { id: docRef.id, accessCode: code };
 });
+
+// Callable to toggle a poll's active state. Uses admin SDK so clients
+// (which are blocked by Firestore rules from editing polls) can request
+// a server-side change. Expects { pin, appId, pollId, isActive }
+exports.togglePollActive = functions.https.onCall(async (data, context) => {
+  const adminPin = functions.config().admin && functions.config().admin.pin;
+  const providedPin = data.pin;
+  if (!adminPin || providedPin !== adminPin) {
+    throw new functions.https.HttpsError('permission-denied', 'Invalid admin PIN');
+  }
+
+  const appId = data.appId || 'church-vote-production';
+  const pollId = data.pollId;
+  if (!pollId) {
+    throw new functions.https.HttpsError('invalid-argument', 'pollId required');
+  }
+
+  const isActive = typeof data.isActive === 'boolean' ? data.isActive : true;
+
+  const db = admin.firestore();
+  const pollRef = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('polls').doc(pollId);
+
+  await pollRef.update({ isActive: isActive });
+  return { id: pollId, isActive };
+});

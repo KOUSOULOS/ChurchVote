@@ -660,7 +660,23 @@ const LeaderView = () => {
 
     const total = votes.length;
     const toggleActive = async () => {
-        await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'polls', poll.id), { isActive: !poll.isActive });
+      // Poll documents are protected by security rules; perform server-side
+      // toggle via callable function to avoid client write rejections and
+      // reactive local cache flip-flop.
+      try {
+        const { getFunctions, httpsCallable } = await import('firebase/functions');
+        const functions = getFunctions(app);
+        const toggle = httpsCallable(functions, 'togglePollActive');
+        await toggle({ pin: '1234', appId, pollId: poll.id, isActive: !poll.isActive });
+      } catch (err) {
+        console.warn('togglePollActive callable failed, falling back to client update:', err);
+        try {
+          await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'polls', poll.id), { isActive: !poll.isActive });
+        } catch (err2) {
+          console.error('Failed to toggle poll active state:', err2);
+          alert('Unable to toggle poll active state. Check console for details.');
+        }
+      }
     };
 
     return (
