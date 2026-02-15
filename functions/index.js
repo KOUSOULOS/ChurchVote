@@ -27,7 +27,6 @@ exports.createPoll = functions.https.onCall(async (data, context) => {
     questions: questions,
     accessCode: code,
     isActive: true,
-    archived: false,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     // legacy single-question fields removed; clients must use `questions` array
   };
@@ -61,26 +60,7 @@ exports.togglePollActive = functions.https.onCall(async (data, context) => {
   return { id: pollId, isActive };
 });
 
-// Callable to archive a poll (sets `archived: true` and `archivedAt`).
-exports.archivePoll = functions.https.onCall(async (data, context) => {
-  const adminPin = functions.config().admin && functions.config().admin.pin;
-  const providedPin = data.pin;
-  if (!adminPin || providedPin !== adminPin) {
-    throw new functions.https.HttpsError('permission-denied', 'Invalid admin PIN');
-  }
 
-  const appId = data.appId || 'church-vote-production';
-  const pollId = data.pollId;
-  if (!pollId) {
-    throw new functions.https.HttpsError('invalid-argument', 'pollId required');
-  }
-
-  const db = admin.firestore();
-  const pollRef = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('polls').doc(pollId);
-
-  await pollRef.update({ archived: true, archivedAt: admin.firestore.FieldValue.serverTimestamp() });
-  return { id: pollId, archived: true };
-});
 
 // Callable to delete all polls and their votes for an appId (ADMIN ONLY).
 // Use with caution. Expects { pin, appId }
