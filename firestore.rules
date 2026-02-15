@@ -33,11 +33,13 @@ service cloud.firestore {
         && (
           (request.auth != null && request.resource.data.userId == request.auth.uid)
           || (
-            request.auth == null
-            && request.resource.data.method == 'qr'
-            // crude token shape check: length > 8
-            && request.resource.data.userId.size() > 8
-          )
+              // Allow QR-based submissions even if the client happens to be
+              // authenticated (e.g. anon auth). We still require the method
+              // to be 'qr' and a token-like userId to reduce spoofing.
+              request.resource.data.method == 'qr'
+              // crude token shape check: length > 8
+              && request.resource.data.userId.size() > 8
+            )
         );
     }
   }

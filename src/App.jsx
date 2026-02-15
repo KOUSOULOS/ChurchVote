@@ -510,7 +510,10 @@ const LeaderView = () => {
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [currentOptions, setCurrentOptions] = useState(['Yes', 'No', 'Abstain']);
   const [activePolls, setActivePolls] = useState([]);
+  const [stoppedPolls, setStoppedPolls] = useState([]);
+  const [tab, setTab] = useState('active'); // 'active' | 'stopped'
   const [viewState, setViewState] = useState('list'); // 'list', 'create', 'print'
+  const [launching, setLaunching] = useState(false);
   
   // Print State
   const [printCount, setPrintCount] = useState(50);
@@ -534,7 +537,9 @@ const LeaderView = () => {
           }
           return { id: doc.id, ...data };
         }).filter(Boolean);
-        setActivePolls(polls);
+        // Split into active vs stopped (no archived state)
+        setActivePolls(polls.filter(p => !!p.isActive));
+        setStoppedPolls(polls.filter(p => !p.isActive));
     }, (err) => console.log("Leader Polls Error:", err));
     return () => unsub();
   }, []);
@@ -562,10 +567,11 @@ const LeaderView = () => {
         alert("Please add at least one question.");
         return;
     }
-    
-    const code = Math.floor(1000 + Math.random() * 9000).toString();
 
+    setLaunching(true);
     try {
+      const code = Math.floor(1000 + Math.random() * 9000).toString();
+
       // Prefer server-side creation via Callable Cloud Function for security.
       try {
         const { getFunctions, httpsCallable } = await import('firebase/functions');
@@ -603,6 +609,8 @@ const LeaderView = () => {
       setViewState('list');
     } catch (err) {
       alert("Error creating vote: " + err.message);
+    } finally {
+      setLaunching(false);
     }
   };
 
@@ -650,9 +658,9 @@ const LeaderView = () => {
 
   // Sub-component for individual poll in dashboard
   const DashboardPoll = ({ poll }) => {
-    const [votes, setVotes] = useState([]);
-    const [localActive, setLocalActive] = useState(poll.isActive);
-    const [isToggling, setIsToggling] = useState(false);
+      const [votes, setVotes] = useState([]);
+      const [localActive, setLocalActive] = useState(poll.isActive);
+      const [isToggling, setIsToggling] = useState(false);
 
     useEffect(() => {
       const vRef = collection(db, 'artifacts', appId, 'public', 'data', `poll_${poll.id}_votes`);
@@ -750,8 +758,13 @@ const LeaderView = () => {
                     <Printer size={16} /> Print QR Cards
                 </button>
                 <button onClick={toggleActive} disabled={isToggling} className={`flex-1 py-2 rounded-lg text-sm font-bold border ${localActive ? 'border-red-200 text-red-600 hover:bg-red-50' : 'border-green-200 text-green-600 hover:bg-green-50'} ${isToggling ? 'opacity-60 cursor-wait' : ''}`}>
-                  {isToggling ? 'Updating…' : (localActive ? 'Stop' : 'Open')}
+                    {isToggling ? 'Updating…' : (localActive ? 'Stop' : 'Open')}
                 </button>
+                { !localActive ? (
+                  <div className="flex-1 py-2 rounded-lg text-sm font-bold text-slate-500 flex items-center justify-center">Stopped</div>
+                ) : (
+                  <div className="flex-1" />
+                )}
             </div>
         </div>
     );
@@ -935,8 +948,12 @@ const LeaderView = () => {
                     </div>
                     <div className="flex gap-3 mt-6 pb-20">
                       <button onClick={() => setViewState('list')} className="flex-1 py-3 text-slate-600 font-bold bg-slate-100 rounded-xl">Cancel</button>
-                      <button onClick={handleLaunch} disabled={questions.length === 0 && !currentQuestion} className="flex-1 py-3 bg-blue-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50">
-                        Launch Ballot ({questions.length + (currentQuestion ? 1 : 0)})
+                      <button
+                        onClick={handleLaunch}
+                        disabled={(questions.length === 0 && !currentQuestion) || launching}
+                        className={`flex-1 py-3 bg-blue-600 text-white rounded-xl font-bold shadow-lg disabled:opacity-50 ${launching ? 'opacity-60 cursor-wait' : ''}`}
+                      >
+                        {launching ? 'Launching…' : `Launch Ballot (${questions.length + (currentQuestion ? 1 : 0)})`}
                       </button>
                     </div>
                   </div>
@@ -947,22 +964,42 @@ const LeaderView = () => {
                 return (
                 <div className="max-w-md mx-auto p-4 pb-24">
                   <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-bold text-slate-800">Leader Dashboard</h2>
-                  <div className="flex items-center gap-3">
-                  <button onClick={() => setViewState('create')} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700">
-                    + New Ballot
-                  </button>
-                  <button onClick={createTestPoll} className="bg-slate-800 text-white px-3 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-slate-900">
-                    Create Test Poll
-                  </button>
-                  </div>
-                  </div>
-                  {activePolls.length === 0 && (
-                    <div className="text-center py-12 text-slate-400 bg-slate-100 rounded-xl border-2 border-dashed border-slate-200">
-                      No active votes. Create one to start.
+                    <h2 className="text-xl font-bold text-slate-800">Leader Dashboard</h2>
+                        <div className="bg-slate-100 rounded-md p-1 flex items-center">
+                          <button onClick={() => setTab('active')} className={`px-3 py-1 rounded-md text-sm font-bold ${tab === 'active' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}>
+                            Active
+                          </button>
+                          <button onClick={() => setTab('stopped')} className={`px-3 py-1 rounded-md text-sm font-bold ${tab === 'stopped' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}>
+                            Stopped
+                          </button>
+                        </div>
+                      <button onClick={() => setViewState('create')} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700">
+                        + New Ballot
+                      </button>
                     </div>
+
+                  {tab === 'active' && (
+                    <>
+                      {activePolls.length === 0 && (
+                        <div className="text-center py-12 text-slate-400 bg-slate-100 rounded-xl border-2 border-dashed border-slate-200">
+                          No active votes. Create one to start.
+                        </div>
+                      )}
+                      {activePolls.map(poll => <DashboardPoll key={poll.id} poll={poll} />)}
+                    </>
                   )}
-                  {activePolls.map(poll => <DashboardPoll key={poll.id} poll={poll} />)}
+
+                  {tab === 'stopped' && (
+                    <>
+                      {stoppedPolls.length === 0 ? (
+                        <div className="text-center py-12 text-slate-400 bg-slate-100 rounded-xl border-2 border-dashed border-slate-200">
+                          No stopped polls.
+                        </div>
+                      ) : (
+                        stoppedPolls.map(poll => <DashboardPoll key={poll.id} poll={poll} />)
+                      )}
+                    </>
+                  )}
                 </div>
                 );
               };

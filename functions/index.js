@@ -27,6 +27,7 @@ exports.createPoll = functions.https.onCall(async (data, context) => {
     questions: questions,
     accessCode: code,
     isActive: true,
+    archived: false,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     // legacy single-question fields removed; clients must use `questions` array
   };
@@ -58,4 +59,67 @@ exports.togglePollActive = functions.https.onCall(async (data, context) => {
 
   await pollRef.update({ isActive: isActive });
   return { id: pollId, isActive };
+});
+
+// Callable to archive a poll (sets `archived: true` and `archivedAt`).
+exports.archivePoll = functions.https.onCall(async (data, context) => {
+  const adminPin = functions.config().admin && functions.config().admin.pin;
+  const providedPin = data.pin;
+  if (!adminPin || providedPin !== adminPin) {
+    throw new functions.https.HttpsError('permission-denied', 'Invalid admin PIN');
+  }
+
+  const appId = data.appId || 'church-vote-production';
+  const pollId = data.pollId;
+  if (!pollId) {
+    throw new functions.https.HttpsError('invalid-argument', 'pollId required');
+  }
+
+  const db = admin.firestore();
+  const pollRef = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('polls').doc(pollId);
+
+  await pollRef.update({ archived: true, archivedAt: admin.firestore.FieldValue.serverTimestamp() });
+  return { id: pollId, archived: true };
+});
+
+// Callable to delete all polls and their votes for an appId (ADMIN ONLY).
+// Use with caution. Expects { pin, appId }
+exports.deleteAllPolls = functions.https.onCall(async (data, context) => {
+  const adminPin = functions.config().admin && functions.config().admin.pin;
+  const providedPin = data.pin;
+  if (!adminPin || providedPin !== adminPin) {
+    throw new functions.https.HttpsError('permission-denied', 'Invalid admin PIN');
+  }
+
+  const appId = data.appId || 'church-vote-production';
+  const db = admin.firestore();
+
+  const pollsColl = db.collection('artifacts').doc(appId).collection('public').doc('data').collection('polls');
+  const pollsSnap = await pollsColl.get();
+
+  let deletedCount = 0;
+  let batch = db.batch();
+  let ops = 0;
+
+  for (const pollDoc of pollsSnap.docs) {
+    // delete the poll doc
+    batch.delete(pollDoc.ref);
+    ops++;
+
+    // delete associated votes collection named `poll_${pollId}_votes` if it exists
+    const votesColl = db.collection('artifacts').doc(appId).collection('public').doc('data').collection(`poll_${pollDoc.id}_votes`);
+    const votesSnap = await votesColl.get();
+    for (const vdoc of votesSnap.docs) {
+      batch.delete(vdoc.ref);
+      ops++;
+      if (ops >= 400) { await batch.commit(); batch = db.batch(); ops = 0; }
+    }
+
+    if (ops >= 400) { await batch.commit(); batch = db.batch(); ops = 0; }
+    deletedCount++;
+  }
+
+  if (ops > 0) await batch.commit();
+
+  return { deletedPolls: deletedCount };
 });
