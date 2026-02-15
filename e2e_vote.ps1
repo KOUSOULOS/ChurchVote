@@ -1,13 +1,17 @@
 $envFile = '.\.env.local'
-$apiKey = (Get-Content $envFile | Where-Object { $_ -match '^VITE_FIREBASE_API_KEY=' }) -replace '^VITE_FIREBASE_API_KEY=', ''
 $projectId = (Get-Content $envFile | Where-Object { $_ -match '^VITE_FIREBASE_PROJECT_ID=' }) -replace '^VITE_FIREBASE_PROJECT_ID=', ''
 $appId = 'church-vote-production'
-Write-Output "Using project=$projectId appId=$appId apiKey=$($apiKey.Substring(0,8))..."
+Write-Output "Using project=$projectId appId=$appId"
 
-$pollsUrl = "https://firestore.googleapis.com/v1/projects/$projectId/databases/(default)/documents/artifacts/$appId/public/data/polls?key=$apiKey"
+# Get an OAuth access token via gcloud to authenticate REST requests (service account / user)
+Write-Output "Obtaining access token via gcloud..."
+$accessToken = (& gcloud auth print-access-token) -replace "\s+", ''
+if (-not $accessToken) { Write-Error "Could not obtain access token. Ensure gcloud is installed and logged in."; exit 1 }
+
+$pollsUrl = "https://firestore.googleapis.com/v1/projects/$projectId/databases/(default)/documents/artifacts/$appId/public/data/polls"
 Write-Output "Querying polls: $pollsUrl"
 try {
-  $polls = Invoke-RestMethod -Method Get -Uri $pollsUrl
+  $polls = Invoke-RestMethod -Method Get -Uri $pollsUrl -Headers @{ Authorization = "Bearer $accessToken" }
 } catch {
   Write-Error "Failed to query polls: $_"
   exit 1
@@ -26,29 +30,24 @@ $pollId = $components[-1]
 Write-Output "Found pollId=$pollId (title: $($first.fields.question.stringValue))"
 
 # Anonymous sign-up via Identity Toolkit
-$signupUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=$apiKey"
-Write-Output "Signing up anonymously..."
-$signup = Invoke-RestMethod -Method Post -Uri $signupUrl -Body '{}' -ContentType 'application/json'
-Write-Output "Signed up anon: uid=$($signup.localId)"
-
-# Prepare vote document
-$uid = $signup.localId
+# Prepare vote document using a token-like userId and write via authenticated REST (service access token)
+$uid = ([guid]::NewGuid().ToString()).Replace('-','')
 $now = (Get-Date).ToUniversalTime().ToString('s') + 'Z'
 $docPath = "projects/$projectId/databases/(default)/documents/artifacts/$appId/public/data/poll_${pollId}_votes/$uid"
-$voteBody = @{ fields = @{ userId = @{ stringValue = $uid }; method = @{ stringValue = 'manual' }; votedAt = @{ timestampValue = $now }; selections = @{ mapValue = @{ fields = @{ '0' = @{ integerValue = '1' } } } } } }
+$voteBody = @{ fields = @{ userId = @{ stringValue = $uid }; method = @{ stringValue = 'qr' }; votedAt = @{ timestampValue = $now }; selections = @{ mapValue = @{ fields = @{ '0' = @{ integerValue = '1' } } } } } }
 $bodyJson = $voteBody | ConvertTo-Json -Depth 10
 Write-Output "Submitting vote to $docPath"
 try {
-  $resp = Invoke-RestMethod -Method Patch -Uri "https://firestore.googleapis.com/v1/$docPath?key=$apiKey" -Headers @{ Authorization = "Bearer $($signup.idToken)" } -Body $bodyJson -ContentType 'application/json'
+  $resp = Invoke-RestMethod -Method Patch -Uri "https://firestore.googleapis.com/v1/$docPath" -Headers @{ Authorization = "Bearer $accessToken" } -Body $bodyJson -ContentType 'application/json'
   Write-Output "Vote submitted: $($resp.name)"
 } catch {
-  Write-Error "Failed to submit vote: $_.Exception.Message"
-  if ($_.Exception.Response) { $_.Exception.Response.GetResponseStream() | % { new-object System.IO.StreamReader($_) } | % { $_.ReadToEnd() } }
+  Write-Error "Failed to submit vote: $_"
+  if ($_.Exception.Response) { $_.Exception.Response.Content.ReadAsStringAsync() | Write-Output }
   exit 1
 }
 
 # Verify vote exists by reading
-$verifyUrl = "https://firestore.googleapis.com/v1/$docPath?key=$apiKey"
-$check = Invoke-RestMethod -Method Get -Uri $verifyUrl
+$verifyUrl = "https://firestore.googleapis.com/v1/$docPath"
+$check = Invoke-RestMethod -Method Get -Uri $verifyUrl -Headers @{ Authorization = "Bearer $accessToken" }
 Write-Output "Verified vote doc fields:"
 $check.fields | ConvertTo-Json -Depth 5
